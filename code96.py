@@ -1,7 +1,7 @@
 # Importing the necessary Python modules.
 import numpy as np
 import pandas as pd
-import seaborn as sns
+#import seaborn as sns
 import matplotlib.pyplot as plt
 import streamlit as st
 
@@ -82,7 +82,7 @@ features_list = st.sidebar.multiselect("Select the x-axis values:",
 for feature in features_list:
     st.subheader(f"Scatter plot between {feature} and GlassType")
     plt.figure(figsize = (12, 6))
-    sns.scatterplot(x = feature, y = 'GlassType', data = glass_df)
+    #sns.scatterplot(x = feature, y = 'GlassType', data = glass_df)
     st.pyplot()
 
 # Add a multiselect widget to allow the user to select multiple visualisation.
@@ -114,13 +114,13 @@ if 'Box Plot' in plot_types:
                                   ('RI', 'Na', 'Mg', 'Al', 'Si', 'K', 'Ca', 'Ba', 'Fe', 'GlassType'))
     plt.figure(figsize = (12, 2))
     plt.title(f"Box plot for {columns}")
-    sns.boxplot(glass_df[columns])
+    #sns.boxplot(glass_df[columns])
     st.pyplot()
 
 # Create count plot using the 'seaborn' module and the 'st.pyplot()' function.
 if 'Count Plot' in plot_types:
     st.subheader("Count plot")
-    sns.countplot(x = 'GlassType', data = glass_df)
+    #sns.countplot(x = 'GlassType', data = glass_df)
     st.pyplot()
 
 # Create a pie chart using the 'matplotlib.pyplot' module and the 'st.pyplot()' function.   
@@ -136,7 +136,7 @@ if 'Pie Chart' in plot_types:
 if 'Correlation Heatmap' in plot_types:
     st.subheader("Correlation Heatmap")
     plt.figure(figsize = (10, 6))
-    ax = sns.heatmap(glass_df.corr(), annot = True) # Creating an object of seaborn axis and storing it in 'ax' variable
+    #ax = sns.heatmap(glass_df.corr(), annot = True) # Creating an object of seaborn axis and storing it in 'ax' variable
     bottom, top = ax.get_ylim() # Getting the top and bottom margin limits.
     ax.set_ylim(bottom + 0.5, top - 0.5) # Increasing the bottom and decreasing the bottom margins respectively.
     st.pyplot()
@@ -145,7 +145,7 @@ if 'Correlation Heatmap' in plot_types:
 if 'Pair Plot' in plot_types:
     st.subheader("Pair Plots")
     plt.figure(figsize = (15, 15))
-    sns.pairplot(glass_df)
+    #sns.pairplot(glass_df)
     st.pyplot()
 
 # Add 9 slider widgets for accepting user input for 9 features.
